@@ -1,46 +1,138 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Conversational Knowledge Base Bot — Ankit Kumar</title><meta name="description" content="RAG-powered multi-turn customer support bot with confidence scoring and hallucination guardrails."><link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet"><style>*{margin:0;padding:0;box-sizing:border-box}:root{--cyan:#06b6d4;--purple:#8b5cf6;--bg:#0a0e1a;--card:#111827;--border:#1f2937;--text:#e2e8f0;--muted:#94a3b8}body{background:var(--bg);color:var(--text);font-family:'Inter',system-ui,sans-serif;line-height:1.6}a{color:var(--cyan);text-decoration:none}a:hover{text-decoration:underline}.hero{padding:80px 24px 56px;text-align:center;background:radial-gradient(ellipse at 50% 0%,rgba(6,182,212,.12) 0%,transparent 70%);border-bottom:1px solid var(--border)}.hero.p{background:radial-gradient(ellipse at 50% 0%,rgba(139,92,246,.12) 0%,transparent 70%)}.back{display:inline-flex;align-items:center;gap:8px;color:var(--muted);font-size:.85rem;margin-bottom:28px;padding:7px 16px;border:1px solid var(--border);border-radius:9999px;transition:.2s}.back:hover{border-color:var(--cyan);color:var(--cyan);text-decoration:none}.badge{display:inline-flex;font-size:.75rem;padding:4px 12px;border-radius:9999px;margin-bottom:18px}.badge.c{background:rgba(6,182,212,.1);border:1px solid rgba(6,182,212,.3);color:var(--cyan)}.badge.p{background:rgba(139,92,246,.1);border:1px solid rgba(139,92,246,.3);color:#a78bfa}h1{font-size:clamp(1.8rem,4.5vw,3rem);font-weight:800;letter-spacing:-1px;margin-bottom:14px;background:linear-gradient(135deg,#fff 0%,var(--cyan) 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}h1.p{background:linear-gradient(135deg,#fff 0%,#a78bfa 100%);-webkit-background-clip:text;background-clip:text}.subtitle{color:var(--muted);font-size:1rem;max-width:680px;margin:0 auto 28px}.metrics{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-bottom:28px}.metric{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:14px 22px;text-align:center;min-width:100px}.mv{font-size:1.6rem;font-weight:800;color:var(--cyan)}.mv.p{color:#a78bfa}.ml{font-size:.7rem;color:var(--muted);margin-top:2px}.cta{display:inline-flex;align-items:center;background:var(--cyan);color:#000;font-weight:700;padding:11px 26px;border-radius:9999px;margin:4px;font-size:.9rem;transition:.2s}.cta:hover{background:#22d3ee;text-decoration:none}.cta.p{background:var(--purple);color:#fff}.cta.p:hover{background:#7c3aed}.cta-o{background:transparent;border:1.5px solid var(--border);color:var(--text)}.cta-o:hover{border-color:var(--cyan);color:var(--cyan);background:transparent;text-decoration:none}main{max-width:880px;margin:0 auto;padding:56px 24px}.sec{margin-bottom:52px}h2{font-size:1.35rem;font-weight:700;margin-bottom:18px;display:flex;align-items:center;gap:10px}.ic{width:30px;height:30px;background:rgba(6,182,212,.15);border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:.9rem;flex-shrink:0}.ic.p{background:rgba(139,92,246,.15)}.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:14px}.card{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:20px;transition:.2s}.card:hover{border-color:rgba(6,182,212,.35)}.card h3{font-size:.95rem;font-weight:600;margin-bottom:7px;color:#fff}.card p{font-size:.83rem;color:var(--muted)}.tags{display:flex;flex-wrap:wrap;gap:7px;margin-top:14px}.tag{background:#1e293b;border:1px solid var(--border);color:var(--muted);font-size:.72rem;padding:3px 10px;border-radius:9999px}.tag.c{background:rgba(6,182,212,.1);border-color:rgba(6,182,212,.3);color:var(--cyan)}.tag.p{background:rgba(139,92,246,.1);border-color:rgba(139,92,246,.3);color:#a78bfa}pre{background:#0d1117;border:1px solid var(--border);border-radius:12px;padding:22px;overflow-x:auto;font-size:.8rem;line-height:1.75}code{font-family:'Fira Code','Courier New',monospace}.kw{color:#ff79c6}.fn{color:#50fa7b}.str{color:#f1fa8c}.cm{color:#6272a4}.op{color:var(--cyan)}.cls{color:#8be9fd}.arch{background:#0d1117;border:1px solid var(--border);border-radius:12px;padding:28px 20px;font-family:monospace;font-size:.85rem;line-height:2.2;color:var(--muted);text-align:center}.nd{color:#fff;background:rgba(6,182,212,.12);border:1px solid rgba(6,182,212,.35);border-radius:6px;padding:2px 14px;display:inline-block}.nd.p{background:rgba(139,92,246,.12);border-color:rgba(139,92,246,.35)}.ar{color:var(--cyan)}footer{border-top:1px solid var(--border);padding:36px 24px;text-align:center;color:var(--muted);font-size:.85rem}footer a{color:var(--purple)}</style></head><body>
-  <div class="hero p"><a class="back" href="https://ankitthakur104.github.io">← Portfolio</a><div class="badge p">💬 RAG · Chatbot</div>
-  <h1 class="p">Conversational Knowledge Base Bot</h1>
-  <p class="subtitle">Multi-turn RAG assistant over 50K+ documents with per-session memory, confidence scoring, and guardrails that prevent hallucinated answers in customer support workflows.</p>
-  <div class="metrics">
-    <div class="metric"><div class="mv p">78%</div><div class="ml">Resolution Rate</div></div>
-    <div class="metric"><div class="mv p">&lt;1.2s</div><div class="ml">Avg Response</div></div>
-    <div class="metric"><div class="mv p">50K+</div><div class="ml">KB Documents</div></div>
-    <div class="metric"><div class="mv p">k=5</div><div class="ml">Turn Memory</div></div>
-  </div>
-  <a class="cta p" href="https://github.com/ankitthakur104/conversational-knowledge-base-bot">View on GitHub</a>
-  <a class="cta cta-o" href="https://ankitthakur104.github.io#projects">All Projects</a>
-  </div>
-  <main>
-  <div class="sec"><h2><span class="ic p">🏗</span>Architecture</h2>
-  <div class="arch"><span class="nd p">User Message</span> <span class="ar">→</span> <span class="nd p">Session Memory (k=5)</span>
-  <span class="ar">↓</span>
-  <span class="nd p">BM25 + Pinecone RAG</span> <span class="ar">→</span> <span class="nd p">Confidence Scorer</span>
-  <span class="ar">↓ &lt; threshold → Fallback &nbsp;&nbsp;&nbsp; ≥ threshold → LLM Answer</span>
-  <span class="nd p">Memory Save</span> <span class="ar">→</span> <span class="nd p">Response</span></div></div>
-  <div class="sec"><h2><span class="ic p">✨</span>Key Features</h2><div class="grid">
-  <div class="card"><h3>Multi-turn Memory</h3><p>ConversationBufferWindowMemory (k=5) maintains per-session context with zero cross-session leakage.</p></div>
-  <div class="card"><h3>Confidence Scoring</h3><p>Lexical overlap between generated answer and retrieved context flags low-confidence answers.</p></div>
-  <div class="card"><h3>Hallucination Guardrails</h3><p>Low-confidence answers trigger graceful fallback and escalate to human support automatically.</p></div>
-  <div class="card"><h3>RAG over 50K+ Docs</h3><p>BM25 + Pinecone retrieval over company knowledge base with per-product namespaced collections.</p></div>
-  <div class="card"><h3>Session Isolation</h3><p>Independent memory state per session ID — safe for high-concurrency multi-user deployments.</p></div>
-  <div class="card"><h3>FastAPI + Docker</h3><p>Containerized REST API with streaming support and horizontal scaling ready.</p></div>
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Knowledge Base Bot — Live Demo</title><link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet"><style>*{margin:0;padding:0;box-sizing:border-box}:root{--cy:#06b6d4;--pu:#8b5cf6;--gr:#22c55e;--or:#f97316;--bg:#0a0e1a;--ca:#111827;--c2:#0f172a;--bd:#1f2937;--tx:#e2e8f0;--mt:#94a3b8}body{background:var(--bg);color:var(--tx);font-family:'Inter',system-ui,sans-serif;min-height:100vh}a{color:var(--cy);text-decoration:none}a:hover{text-decoration:underline}.tb{background:rgba(10,14,26,.96);border-bottom:1px solid var(--bd);padding:13px 22px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:100;backdrop-filter:blur(12px)}.tl{display:flex;align-items:center;gap:10px;flex-wrap:wrap}.bk{display:inline-flex;align-items:center;gap:5px;color:var(--mt);font-size:.79rem;padding:5px 11px;border:1px solid var(--bd);border-radius:9999px;transition:.2s}.bk:hover{border-color:var(--cy);color:var(--cy);text-decoration:none}.pt{font-weight:700;font-size:.9rem}.badge{font-size:.67rem;padding:2px 9px;border-radius:9999px;border:1px solid}.bc{background:rgba(6,182,212,.1);border-color:rgba(6,182,212,.3);color:var(--cy)}.bp{background:rgba(139,92,246,.1);border-color:rgba(139,92,246,.3);color:#a78bfa}.gh{color:var(--mt);font-size:.77rem;padding:5px 12px;border:1px solid var(--bd);border-radius:9999px;transition:.2s;display:inline-flex;align-items:center;gap:5px}.gh:hover{color:var(--tx);text-decoration:none}.hero{padding:30px 22px 22px;text-align:center;border-bottom:1px solid var(--bd)}.hc{background:radial-gradient(ellipse at 50% 0%,rgba(6,182,212,.1) 0%,transparent 60%)}.hp{background:radial-gradient(ellipse at 50% 0%,rgba(139,92,246,.1) 0%,transparent 60%)}h1{font-size:clamp(1.35rem,3vw,1.9rem);font-weight:800;letter-spacing:-.4px;background:linear-gradient(135deg,#fff 0%,var(--cy) 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}h1.p{background:linear-gradient(135deg,#fff 0%,#a78bfa 100%);-webkit-background-clip:text;background-clip:text}.sub{color:var(--mt);font-size:.85rem;margin-top:6px;max-width:600px;margin-left:auto;margin-right:auto}.mr{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;margin-top:16px}.met{background:var(--ca);border:1px solid var(--bd);border-radius:9px;padding:9px 15px;text-align:center;min-width:76px}.mv{font-size:1.15rem;font-weight:800;color:var(--cy)}.mv.p{color:#a78bfa}.ml{font-size:.61rem;color:var(--mt)}.wrap{max-width:840px;margin:0 auto;padding:26px 16px}.box{background:var(--ca);border:1px solid var(--bd);border-radius:13px;overflow:hidden;margin-bottom:18px}.bh{padding:11px 17px;border-bottom:1px solid var(--bd);display:flex;align-items:center;gap:7px;background:var(--c2)}.dot{width:8px;height:8px;border-radius:50%}.bl{font-size:.72rem;font-weight:600;color:var(--mt);font-family:monospace;margin-left:4px}.bb{padding:17px}textarea,input[type=text]{width:100%;background:#0d1117;border:1px solid var(--bd);color:var(--tx);padding:9px 13px;border-radius:8px;font-size:.86rem;font-family:inherit;resize:vertical;outline:none;transition:.2s}textarea:focus,input:focus{border-color:var(--cy)}.pc textarea:focus,.pc input:focus{border-color:var(--pu)}.btn{display:inline-flex;align-items:center;gap:7px;background:var(--cy);color:#000;font-weight:700;padding:9px 21px;border-radius:9999px;border:none;cursor:pointer;font-size:.84rem;margin-top:9px;transition:.2s}.btn:hover{background:#22d3ee}.btn:disabled{opacity:.5;cursor:wait}.btn.p{background:var(--pu);color:#fff}.btn.p:hover{background:#7c3aed}.btn.sm{padding:7px 16px;font-size:.8rem;margin-top:0}.exs{display:flex;flex-wrap:wrap;gap:7px;margin-top:9px}.chip{background:#1e293b;border:1px solid var(--bd);color:var(--mt);font-size:.72rem;padding:4px 11px;border-radius:9999px;cursor:pointer;transition:.2s}.chip:hover{border-color:var(--cy);color:var(--cy)}.chip.p:hover{border-color:var(--pu);color:#a78bfa}.out{background:#0d1117;border:1px solid var(--bd);border-radius:9px;padding:16px;min-height:90px;margin-top:13px;font-family:'Fira Code',monospace;font-size:.79rem;line-height:1.8;white-space:pre-wrap;word-break:break-word;display:none}.out.show{display:block}.ld{display:none;align-items:center;gap:9px;color:var(--mt);font-size:.82rem;margin-top:11px}.ld.show{display:flex}.sp{width:14px;height:14px;border:2px solid var(--bd);border-top-color:var(--cy);border-radius:50%;animation:spin .7s linear infinite}.sp.p{border-top-color:var(--pu)}@keyframes spin{to{transform:rotate(360deg)}}.g2{display:grid;grid-template-columns:1fr 1fr;gap:11px}@media(max-width:560px){.g2{grid-template-columns:1fr}}.ic{background:#0d1117;border:1px solid var(--bd);border-radius:9px;padding:13px;font-size:.78rem;line-height:1.7;color:var(--mt)}.ic strong{color:var(--tx)}.sl2{font-size:.67rem;text-transform:uppercase;letter-spacing:.07em;color:var(--mt);margin-bottom:7px;font-weight:600}.sliders{display:grid;grid-template-columns:repeat(auto-fit,minmax(185px,1fr));gap:9px;margin-bottom:13px}.sl label{font-size:.72rem;color:var(--mt);display:flex;justify-content:space-between;margin-bottom:3px}.sl input[type=range]{width:100%;accent-color:var(--cy)}.sl.p input[type=range]{accent-color:var(--pu)}.chat{display:flex;flex-direction:column;gap:0;min-height:180px;max-height:380px;overflow-y:auto;margin-bottom:12px}.cmsg{padding:9px 13px;border-radius:9px;font-size:.84rem;margin-bottom:8px;line-height:1.6;max-width:90%}.cu{background:rgba(6,182,212,.12);border:1px solid rgba(6,182,212,.2);align-self:flex-end;margin-left:auto}.cb{background:var(--c2);border:1px solid var(--bd)}.cme{font-size:.66rem;color:var(--mt);margin-bottom:3px}.ci{display:flex;gap:8px;align-items:center}.ci input{flex:1;margin:0}.src-doc{background:#0d1117;border:1px solid var(--bd);border-radius:8px;padding:11px;margin-bottom:9px;font-size:.8rem;line-height:1.65}.src-label{font-size:.65rem;font-weight:700;text-transform:uppercase;letter-spacing:.07em;color:var(--cy);margin-bottom:5px}.src-snippet{color:var(--mt);font-style:italic}.doc-sel{display:flex;gap:7px;flex-wrap:wrap;margin-bottom:13px}.doc-btn{padding:6px 13px;font-size:.78rem;border:1px solid var(--bd);border-radius:8px;cursor:pointer;background:var(--c2);color:var(--mt);transition:.2s}.doc-btn.act{border-color:var(--cy);color:var(--cy);background:rgba(6,182,212,.08)}footer{border-top:1px solid var(--bd);padding:22px;text-align:center;color:var(--mt);font-size:.77rem}footer a{color:var(--pu)}</style></head><body>
+  <div class="tb"><div class="tl"><a class="bk" href="https://ankitthakur104.github.io">← Portfolio</a><span class="pt">Conversational Knowledge Base Bot</span><span class="badge bc">Live Demo</span></div><a class="gh" href="https://github.com/ankitthakur104/conversational-knowledge-base-bot" target="_blank">⭐ Code</a></div>
+  <div class="hero hc"><h1>Chat With the Knowledge Base</h1><p class="sub">Multi-turn conversation with memory. Ask follow-up questions — the bot tracks context across turns, retrieves relevant KB articles, and gives grounded answers.</p>
+  <div class="mr"><div class="met"><div class="mv">88%</div><div class="ml">Resolution Rate</div></div><div class="met"><div class="mv">-45%</div><div class="ml">Escalations</div></div><div class="met"><div class="mv">5K+</div><div class="ml">KB Articles</div></div><div class="met"><div class="mv">GPT-4o</div><div class="ml">Model</div></div></div></div>
+  <div class="wrap"><div class="box"><div class="bh"><div class="dot" style="background:#ff5555"></div><div class="dot" style="background:#ffb86c"></div><div class="dot" style="background:#50fa7b"></div><span class="bl">LangChain · ConversationBufferWindowMemory · FAISS · GPT-4o</span></div><div class="bb">
+  <div class="chat" id="chat"></div>
+  <div class="ci"><input type="text" id="ki" placeholder="Ask anything about the product..." onkeydown="if(event.key==='Enter')sendMsg()"><button class="btn btn.sm" style="margin:0;padding:8px 18px" onclick="sendMsg()">Send</button></div>
+  <div class="exs" id="kexs"></div>
   </div></div>
-  <div class="sec"><h2><span class="ic p">💻</span>Confidence Guardrail Logic</h2>
-  <pre><code><span class="kw">def</span> <span class="fn">score_confidence</span>(answer: str, docs: list) -> float:
-      a_words <span class="op">=</span> set(answer.lower().split())
-      c_words <span class="op">=</span> set(<span class="str">" "</span>.join(d.page_content <span class="kw">for</span> d <span class="kw">in</span> docs).lower().split())
-      <span class="kw">return</span> min(len(a_words <span class="op">&amp;</span> c_words) / max(len(a_words), <span class="op">1</span>), <span class="op">1.0</span>)
+  <div class="g2">
+  <div class="ic"><strong>Conversation Memory</strong><br><br>ConversationBufferWindowMemory (k=10 turns) enables follow-up questions. Entity extraction tracks mentioned topics across turns for coherent multi-step dialogues.</div>
+  <div class="ic"><strong>KB Article Retrieval</strong><br><br>5,000+ support articles indexed in FAISS. Each bot response cites the relevant article IDs. Confidence scoring escalates to human agent if &lt;0.65.</div>
+  </div></div>
+  <script>
+  var HISTORY=[];
+  var KB={
+    "password":["How do I reset my password?","I forgot my password"],
+    "billing":["How am I billed?","Can I change my plan?","When is my renewal?","billing cycle","invoice","charge","refund","cancel subscription","downgrade","upgrade plan"],
+    "api":["How do I get an API key?","rate limit","API documentation","webhook","authentication","token","endpoint","REST","GraphQL"],
+    "install":["How do I install","setup","getting started","first time","onboard","configure","integration"],
+    "error":["getting an error","something broke","not working","crash","bug","issue","problem","troubleshoot","fix"],
+    "account":["account settings","profile","email","username","2FA","two-factor","SSO","login","sign in","delete account"]
+  };
+  var ANSWERS={
+    "password":"To reset your password:
+1. Go to login page → click 'Forgot password'
+2. Enter your email address
+3. Check your inbox for the reset link (valid 15 min)
+4. Create a new password (min 12 chars, 1 uppercase, 1 number)
 
-  <span class="op">@</span>app.post(<span class="str">"/chat"</span>)
-  <span class="kw">async def</span> <span class="fn">chat</span>(req: ChatRequest):
-      docs       <span class="op">=</span> retriever.get_relevant_documents(req.message)
-      answer     <span class="op">=</span> llm.invoke(build_prompt(docs, req.message)).content
-      confidence <span class="op">=</span> score_confidence(answer, docs)
-      <span class="kw">if</span> confidence <span class="op">&lt;</span> CONFIDENCE_THRESHOLD:
-          answer <span class="op">=</span> <span class="str">"Please contact support@company.com"</span>
-      memory.save_context({<span class="str">"input"</span>: req.message}, {<span class="str">"output"</span>: answer})
-      <span class="kw">return</span> ChatResponse(answer<span class="op">=</span>answer, confidence<span class="op">=</span>round(confidence, <span class="op">2</span>))</code></pre></div>
-  <div class="sec"><h2><span class="ic p">🛠</span>Tech Stack</h2>
-  <div class="tags"><span class="tag p">Python</span><span class="tag p">LangChain</span><span class="tag p">OpenAI</span><span class="tag p">Pinecone</span><span class="tag">FastAPI</span><span class="tag">Docker</span><span class="tag">RAG</span><span class="tag">Guardrails</span></div></div>
-  </main><footer><p>Built by <a href="https://ankitthakur104.github.io">Ankit Kumar</a> — AI/GenAI Engineer &nbsp;·&nbsp; <a href="https://github.com/ankitthakur104">GitHub</a> &nbsp;·&nbsp; <a href="https://ankitthakur104.github.io#projects">All Projects</a></p></footer></body></html>
+If you don't receive the email within 2 mins, check spam or contact support.
+📄 KB-1042: Password Reset Guide",
+    "billing":"Billing details:
+• Billing cycle: monthly or annual (20% discount)
+• Invoices sent 3 days before renewal via email
+• Accepted: Visa, Mastercard, AMEX, bank transfer (annual only)
+• Refunds: pro-rated within 14 days of renewal
+• Downgrade takes effect at next billing cycle
+
+📄 KB-2301: Billing & Subscription FAQ",
+    "api":"API access:
+• Get your API key: Settings → Developer → API Keys
+• Rate limits: Free 100/min · Pro 1,000/min · Enterprise unlimited
+• Auth: Bearer token in Authorization header
+• Docs: docs.yourapp.com/api (OpenAPI 3.1 + GraphQL playground)
+• Webhooks: Settings → Integrations → Webhooks
+
+📄 KB-3504: API Authentication & Rate Limits",
+    "install":"Getting started:
+1. Sign up at app.yourapp.com (free 14-day trial, no CC)
+2. Install CLI: npm install -g @yourapp/cli
+3. Authenticate: yourapp login
+4. Initialize: yourapp init in your project folder
+5. Follow the interactive setup wizard
+
+Full guide: docs.yourapp.com/quickstart
+📄 KB-0101: Quick Start Guide",
+    "error":"To troubleshoot errors:
+1. Check our status page: status.yourapp.com
+2. Copy the error code/message and search KB
+3. Hard refresh (Ctrl+Shift+R) and clear cache
+4. Try incognito/private mode to rule out extensions
+5. If persists: Settings → Support → Report Issue (include error code)
+
+Common errors: ERR_AUTH_401 (re-login), ERR_RATE_429 (slow down), ERR_PLAN_403 (upgrade needed)
+📄 KB-5001: Troubleshooting Common Errors",
+    "account":"Account settings:
+• Profile: Settings → Profile (name, avatar, timezone)
+• Email change: requires verification from old email
+• 2FA: Settings → Security → Enable TOTP (Google Authenticator / Authy)
+• SSO: Settings → Security → Configure SAML (Enterprise only)
+• Delete: Settings → Danger Zone → Delete Account (30-day grace period)
+
+📄 KB-1201: Account Settings Guide",
+    "default":"I searched our knowledge base for that — here's what I found:
+
+This looks like it might need more specific context. Could you clarify:
+• Which feature or section are you referring to?
+• Are you seeing an error message?
+• Is this about billing, API, account, or something else?
+
+Or browse our help center directly: help.yourapp.com
+📄 KB-9999: Help Center Index"
+  };
+  var EXQ=["How do I reset my password?","How do I get an API key?","Tell me about billing and refunds","Something is broken — how do I troubleshoot?","How do I set up 2FA?","Getting started — where do I begin?"];
+  function detectIntent(q){var ql=q.toLowerCase();for(var k in KB){if(KB[k].some(function(kw){return ql.includes(kw.toLowerCase());}))return k;}return"default";}
+  function addMsg(role,text){
+    var chat=document.getElementById("chat");
+    var wrap=document.createElement("div");
+    var meta=document.createElement("div");meta.className="cme";meta.textContent=role==="user"?"You":"🤖 KB Bot";
+    var msg=document.createElement("div");msg.className="cmsg "+(role==="user"?"cu":"cb");
+    msg.textContent=text;
+    wrap.appendChild(meta);wrap.appendChild(msg);
+    chat.appendChild(wrap);chat.scrollTop=chat.scrollHeight;
+  }
+  function typeReply(text){
+    var chat=document.getElementById("chat");
+    var wrap=document.createElement("div");
+    var meta=document.createElement("div");meta.className="cme";meta.textContent="🤖 KB Bot";
+    var msg=document.createElement("div");msg.className="cmsg cb";
+    wrap.appendChild(meta);wrap.appendChild(msg);chat.appendChild(wrap);
+    var i=0,chars=text.split("");
+    var t=setInterval(function(){msg.textContent+=chars[i++]||"";chat.scrollTop=chat.scrollHeight;if(i>=chars.length)clearInterval(t);},12);
+  }
+  var busy=false;
+  async function sendMsg(){
+    if(busy)return;
+    var inp=document.getElementById("ki"),q=inp.value.trim();if(!q)return;
+    inp.value="";addMsg("user",q);HISTORY.push(q);busy=true;
+    // Simulate typing indicator
+    var chat=document.getElementById("chat");
+    var typing=document.createElement("div");typing.className="cmsg cb";typing.style.color="var(--mt)";typing.textContent="Searching KB...";
+    var tw=document.createElement("div");var tm=document.createElement("div");tm.className="cme";tm.textContent="🤖 KB Bot";
+    tw.appendChild(tm);tw.appendChild(typing);chat.appendChild(tw);chat.scrollTop=chat.scrollHeight;
+    await new Promise(function(r){setTimeout(r,900+Math.random()*600);});
+    chat.removeChild(tw);
+    var intent=detectIntent(q);
+    // Check follow-up context
+    if(HISTORY.length>1&&intent==="default"){var prev=HISTORY[HISTORY.length-2].toLowerCase();for(var k in KB){if(KB[k].some(function(kw){return prev.includes(kw.toLowerCase());})){intent=k;break;}}}
+    typeReply(ANSWERS[intent]);
+    busy=false;
+  }
+  // Build example chips
+  var ec=document.getElementById("kexs");
+  EXQ.forEach(function(q){var c=document.createElement("span");c.className="chip";c.textContent=q;c.onclick=function(){document.getElementById("ki").value=q;document.getElementById("ki").focus();};ec.appendChild(c);});
+  // Welcome message
+  setTimeout(function(){typeReply("Hi! I'm your AI support assistant, connected to 5,000+ knowledge base articles.
+
+You can ask me about:
+• Account & password
+• Billing & subscriptions
+• API & integrations
+• Setup & getting started
+• Troubleshooting errors
+
+What can I help you with today?");},300);
+  </script>
+  <footer><p>Built by <a href="https://ankitthakur104.github.io">Ankit Kumar</a> — AI/GenAI Engineer &nbsp;·&nbsp; <a href="https://github.com/ankitthakur104">GitHub</a> &nbsp;·&nbsp; <a href="https://ankitthakur104.github.io#projects">All Projects</a></p></footer></body></html>
